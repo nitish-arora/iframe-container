@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  @ViewChild("iframe1") iframe1: ElementRef;
+  ngOnInit() {
+    this.iframe1.nativeElement.contentWindow.postMessage("hi_from_parent_8888","*");
+  } 
 }
